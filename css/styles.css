@@ -98,6 +98,28 @@ a:active {
   padding: 25px 0;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+
+.panel {
+  flex: 1;
+  min-height: 200px;
+  margin: 5px;
+  padding: 5px;
+  background: #efefef;
+}
+
+.panel:first-child {
+  margin-left: 10px;
+}
+
+.panel:last-child {
+  margin-right: 10px;
+}
+
 @media (max-width: 600px) {
   .header {
     min-height: 150px;
@@ -108,5 +130,21 @@ a:active {
   .info {
     align-items: center;
     margin: 15px 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .panel {
+    margin: 15px 15px 0 15px;
+  }
+
+  .panel:first-child {
+    margin-left: 15px;
+  }
+
+  .panel:last-child {
+    margin-right: 15px;
   }
 }
