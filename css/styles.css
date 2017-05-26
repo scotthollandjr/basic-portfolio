@@ -1,20 +1,24 @@
 body {
-  background-color: #423040;
-  color: #fff;
+  background-color: #fafafa;
+  color: #423040;
   font-size: 1em;
   height: 100vh;
+  /*background-image: url(../img/wallpaper.jpg);*/
+  /*background-size: 100% 100vh;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   text-align: center;
-  padding: 100px;
 }
 
 .container {
-  /*background: salmon;*/
   height: 100%;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 900px;
   -webkit-display: -webkit-box;
   -webkit-display: -webkit-flex;
   display: -webkit-box;
@@ -23,45 +27,86 @@ h1 {
   flex-direction: column;
 }
 
-nav {
-  max-width: 1000px;
-  background-color: #423040;
+.header {
+  /*background: #efefef;*/
   width: 100%;
+  color: #423040;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  position: fixed;
-  bottom: 0;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 200px;
 }
 
-.item {
-  margin: 0 auto;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
+.info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 5px;
+  padding-left: 15px;
+  font-weight: 300;
+}
+
+.name {
+  padding-bottom: 4px;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.other {
+  padding-top: 1px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item {
   text-align: center;
-  font-weight: bold;
+  padding: 5px;
+  width: 75px;
+  font-weight: 400;
   font-size: 1em;
-  vertical-align: middle;
 }
 
-.item a {
+a {
   text-decoration: none;
-  color: #fff;
+  color: #423040;
+  -webkit-transition: letter-spacing 0.5s ease;
+  -moz-transition: letter-spacing 0.5s ease;
+  -o-transition: letter-spacing 0.5s ease;
+  transition: letter-spacing 0.5s ease;
+  letter-spacing: 1px;
 }
 
-.section {
-  min-height: 100%;
+a:hover {
+  color: #785674;
+  letter-spacing: 2px;
 }
 
-.one {
-  background-color: #71b4ff;
+a:active {
+  letter-spacing: 1px;
 }
 
-.two {
-  background-color: #58a7ff;
+.nav-item.active a {
+  border-bottom: 1px solid #423040;
 }
 
-.three {
-  background-color: #3e99ff;
+.content {
+  height: 100%;
+  padding: 25px 0;
+}
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 150px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info {
+    align-items: center;
+    margin: 15px 0;
+  }
 }
