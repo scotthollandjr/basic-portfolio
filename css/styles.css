@@ -1,3 +1,5 @@
+/****************** LAYOUT ******************/
+
 body {
   background-color: #fafafa;
   color: #423040;
@@ -16,9 +18,9 @@ h1 {
 }
 
 .container {
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1000px;
   -webkit-display: -webkit-box;
   -webkit-display: -webkit-flex;
   display: -webkit-box;
@@ -27,8 +29,36 @@ h1 {
   flex-direction: column;
 }
 
+.content {
+  height: 100%;
+  padding: 60px 0 20px;
+}
+
+
+
+/****************** BACKGROUND IMAGE ******************/
+
+body.tree {
+  min-height: 100px;
+  background-image: url(../img/pine.png);
+  background-size: 250px 600px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+  body.tree {
+    background-image: none;
+  }
+}
+
+
+
+/****************** HEADER ******************/
+
 .header {
-  /*background: #efefef;*/
+  background-color: rgba(250,250,250,0.5);
   width: 100%;
   color: #423040;
   display: flex;
@@ -36,13 +66,14 @@ h1 {
   justify-content: space-between;
   align-items: flex-end;
   min-height: 200px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .info {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 5px;
   padding-left: 15px;
   font-weight: 300;
 }
@@ -73,14 +104,14 @@ h1 {
 a {
   text-decoration: none;
   color: #423040;
-  -webkit-transition: letter-spacing 0.5s ease;
-  -moz-transition: letter-spacing 0.5s ease;
-  -o-transition: letter-spacing 0.5s ease;
-  transition: letter-spacing 0.5s ease;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  transition: all 350ms ease;
   letter-spacing: 1px;
 }
 
-a:hover {
+.nav a:hover {
   color: #785674;
   letter-spacing: 2px;
 }
@@ -93,32 +124,145 @@ a:active {
   border-bottom: 1px solid #423040;
 }
 
-.content {
-  height: 100%;
-  padding: 25px 0;
-}
+
+
+/****************** IMAGE GRID ******************/
 
 .row {
   display: flex;
   flex-direction: row;
-  align-items: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .panel {
-  flex: 1;
-  min-height: 200px;
-  margin: 5px;
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  margin-bottom: 15px;
+}
+
+.panel-image {
+  width: 100%;
+  height: 200px;
+  /*box-shadow: 0px 1px 2px -1px rgba(0,0,0,0.5);*/
+  border: 1px solid rgba(0,0,0,.1);
+  transition: all 0.25s ease;
+}
+
+.panel:hover .panel-image {
+  width: 101%;
+  height: 202px;
+}
+
+.panel:hover a {
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+.panel-info {
   padding: 5px;
-  background: #efefef;
 }
 
-.panel:first-child {
-  margin-left: 10px;
+.panel-info p {
+  margin: 0;
 }
 
-.panel:last-child {
-  margin-right: 10px;
+.panel-info .title {
+  padding: 3px 0;
+  text-align: center;
 }
+
+.panel-info .description {
+  text-align: center;
+  font-weight: 300;
+  color: #785674;
+  font-size: .9em;
+}
+
+
+
+/****************** IMAGES ******************/
+
+.auntieems {
+  background-image: url(../img/auntieems.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .75;
+}
+
+.clockocat {
+  background-image: url(../img/clockocat.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .75;
+}
+
+.pocketcats {
+  background-image: url(../img/pocketcats.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .75;
+}
+
+.portfolio {
+  background-image: url(../img/portfolio.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .75;
+}
+
+.repmax {
+  background-image: url(../img/repmax.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .75;
+}
+
+
+
+/****************** DETAIL MODAL ******************/
+
+.modal {
+  margin: 100px auto;
+  background: #fff;
+  height: 50%;
+  width: 50%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: opacity 325ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay .cancel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+/****************** MOBILE ******************/
 
 @media (max-width: 600px) {
   .header {
@@ -132,19 +276,11 @@ a:active {
     margin: 15px 0;
   }
 
-  .row {
-    flex-direction: column;
-  }
-
   .panel {
-    margin: 15px 15px 0 15px;
+    margin: 15px 0;
   }
 
   .panel:first-child {
-    margin-left: 15px;
-  }
-
-  .panel:last-child {
-    margin-right: 15px;
+    margin-top: 0;
   }
 }
